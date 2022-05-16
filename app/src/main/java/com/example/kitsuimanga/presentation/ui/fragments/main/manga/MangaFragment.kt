@@ -16,7 +16,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
     override val binding by viewBinding(FragmentMangaBinding::bind)
     override val viewModel: MangaViewModel by viewModels()
     private val mangaAdapter = MangaAdapter(this::onClick)
-    override fun assembleViews() {
+    override fun setupViews() {
         setupAdapter()
     }
 
@@ -24,7 +24,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
         binding.recyclerview.adapter = mangaAdapter
     }
 
-    override fun launchObservers() {
+    override fun setupObservers() {
         viewModel.fetchManga().spectatePaging(
             error = {
                 Log.e("tag", it)

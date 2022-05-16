@@ -19,10 +19,8 @@ class AnimeAdapter(
             binding.imAnime.setImage(ui.animeDto.posterImage?.original)
             binding.root.setOnClickListener {
                 onClick(ui.id)
-
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeViewHolder {
@@ -39,6 +37,4 @@ class AnimeAdapter(
         getItem(position)?.let { holder.onBind(it) }
 
     }
-
 }
-

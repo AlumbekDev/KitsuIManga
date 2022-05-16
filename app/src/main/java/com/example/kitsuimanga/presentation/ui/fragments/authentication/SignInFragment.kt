@@ -15,12 +15,12 @@ class SignInFragment :
     override val binding by viewBinding(FragmentSignInBinding::bind)
     override val viewModel: SignInViewModel by viewModels()
 
-    override fun launchObservers() {
+    override fun setupObservers() {
         subscribeToAuthorization()
     }
 
     private fun subscribeToAuthorization() {
-        viewModel.signInState.spectateUiState(
+        viewModel.signInState.collectUiState(
             gatherIfSucceed = {
                 it.setupVisibility(binding.signInContainer, binding.progressbar)
             },

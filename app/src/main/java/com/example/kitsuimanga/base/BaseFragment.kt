@@ -27,25 +27,25 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialize()
-        assembleViews()
+        setupViews()
         setupListeners()
-        establishRequest()
-        launchObservers()
+        setupRequest()
+        setupObservers()
     }
 
     protected open fun initialize() {
     }
 
-    protected open fun assembleViews() {
+    protected open fun setupViews() {
     }
 
     protected open fun setupListeners() {
     }
 
-    protected open fun establishRequest() {
+    protected open fun setupRequest() {
     }
 
-    protected open fun launchObservers() {
+    protected open fun setupObservers() {
     }
 
     protected fun <T : Any> Flow<PagingData<T>>.spectatePaging(
@@ -53,7 +53,7 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
         success: suspend (data: PagingData<T>) -> Unit,
         error: ((error: String) -> Unit)? = null,
     ) {
-        safeFlowGather(lifecycleState) {
+        FlowGather(lifecycleState) {
             collectLatest {
                 success(it)
                 error(it)
@@ -61,7 +61,7 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
         }
     }
 
-    protected fun <T> StateFlow<UiState<T>>.spectateUiState(
+    protected fun <T> StateFlow<UiState<T>>.collectUiState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         success: ((data: T) -> Unit)? = null,
         loading: ((data: UiState.Loading<T>) -> Unit)? = null,
@@ -69,7 +69,7 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
         idle: ((idle: UiState.Idle<T>) -> Unit)? = null,
         gatherIfSucceed: ((state: UiState<T>) -> Unit)? = null,
     ) {
-        safeFlowGather(lifecycleState) {
+        FlowGather(lifecycleState) {
             collect {
                 gatherIfSucceed?.invoke(it)
                 when (it) {
@@ -90,7 +90,7 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
         }
     }
 
-    private fun safeFlowGather(
+    private fun FlowGather(
         lifecycleState: Lifecycle.State,
         gather: suspend () -> Unit,
     ) {
@@ -126,10 +126,7 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(@L
                 } else {
                     displayLoader(false)
                 }
-
             }
         }
-
     }
-
 }

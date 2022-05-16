@@ -29,14 +29,13 @@ abstract class BaseViewModel : ViewModel() {
                     is Either.Right -> state.value = UiState.Success(mapData(it.value))
                 }
             }
-
         }
     }
-    protected fun <T : Any, S : Any> Flow<PagingData<T>>.gatherPagingRequest(
-        mappedData: (data: T) -> S
+
+    protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
+        mappedData: (data: T) -> S,
     ) = map {
         it.map { data -> mappedData(data) }
-
 
     }.cachedIn(viewModelScope)
 }

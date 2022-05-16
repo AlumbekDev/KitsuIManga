@@ -17,16 +17,16 @@ class MangaDetailedFragment :
     override val viewModel: MangaDetailedViewModel by viewModels()
     private val args: MangaDetailedFragmentArgs by navArgs()
 
-    override fun establishRequest() {
+    override fun setupRequest() {
         viewModel.fetchDetailedManga(args.id)
     }
 
-    override fun launchObservers() {
+    override fun setupObservers() {
         subscribeToDetailedManga()
     }
 
     private fun subscribeToDetailedManga() {
-        viewModel.mangaDetailedState.spectateUiState(
+        viewModel.mangaDetailedState.collectUiState(
             success = {
                 binding.apply {
                     it.apply {

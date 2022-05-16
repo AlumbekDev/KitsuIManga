@@ -16,7 +16,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     override val binding by viewBinding(FragmentAnimeBinding::bind)
     override val viewModel: AnimeViewModel by viewModels()
     private val animeAdapter = AnimeAdapter(this::onClick)
-    override fun assembleViews() {
+    override fun setupViews() {
         setupAdapter()
     }
 
@@ -24,7 +24,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
         binding.recyclerview.adapter = animeAdapter
     }
 
-    override fun launchObservers() {
+    override fun setupObservers() {
         viewModel.fetchAnime().spectatePaging(
             error = {
                 Log.e("tag", it)

@@ -17,17 +17,16 @@ class AnimeDetailedFragment :
     override val viewModel: AnimeDetailedViewModel by viewModels()
     private val args: AnimeDetailedFragmentArgs by navArgs()
 
-
-    override fun establishRequest() {
+    override fun setupRequest() {
         viewModel.fetchADetailedAnime(args.id)
     }
 
-    override fun launchObservers() {
+    override fun setupObservers() {
         subscribeToAnimeDetailed()
     }
 
     private fun subscribeToAnimeDetailed() {
-        viewModel.animeDetailedState.spectateUiState(success = {
+        viewModel.animeDetailedState.collectUiState(success = {
             binding.apply {
 
                 it.apply {

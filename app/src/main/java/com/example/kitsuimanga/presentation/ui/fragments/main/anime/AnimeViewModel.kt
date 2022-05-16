@@ -12,9 +12,7 @@ class AnimeViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     fun fetchAnime() =
-        animeRepositoryImpl.fetchPageAnime().gatherPagingRequest {
+        animeRepositoryImpl.fetchPageAnime().collectPagingRequest {
             it.toUI()
         }
-
-
 }
