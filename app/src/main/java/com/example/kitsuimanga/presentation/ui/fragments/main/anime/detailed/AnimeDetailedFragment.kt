@@ -23,14 +23,19 @@ class AnimeDetailedFragment :
 
     override fun setupObservers() {
         subscribeToAnimeDetailed()
+        showCategoryChips()
+
+    }
+
+    private fun showCategoryChips() {
+
     }
 
     private fun subscribeToAnimeDetailed() {
         viewModel.animeDetailedState.collectUiState(success = {
             binding.apply {
-
                 it.apply {
-                    imCover.setImage(data.animeDto.coverImage?.original)
+                    ivCover.setImage(data.animeDto.coverImage?.original)
                     imPoster.setImage(data.animeDto.posterImage?.medium)
                     tvSubtype.text = data.animeDto.subtype?.uppercase()
                     tvYear.text = data.animeDto.createdAt

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KitsuIManga</string>
+    <string name="title_ratings">Ratings</string>
+    <string name="title_streamer">Streaming Links</string>
+    <string name="title_more_franchise">More from this Series</string>
+
+    <string name="title_episodes">Episodes</string>
+    <string name="title_chapters">Chapters</string>
+    <string name="title_characters">Characters</string>
+    <string name="title_details">Details</string>
+
+
 </resources>

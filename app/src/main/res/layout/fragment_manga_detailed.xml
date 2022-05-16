@@ -75,6 +75,28 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="135dp" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="75dp"
+        android:background="@color/black"
+        android:requiresFadingEdge="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/tv_rating"
+        app:layout_constraintTop_toBottomOf="@+id/im_cover"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            app:singleLine="true" />
+
+    </HorizontalScrollView>
+
     <TextView
         android:id="@+id/tv_subtype"
         android:layout_width="wrap_content"
@@ -83,23 +105,12 @@
         android:layout_marginTop="2dp"
         android:fontFamily="@font/helvetica_regular"
         android:text="tv"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/gl_subtype"
         app:layout_constraintTop_toBottomOf="@id/im_cover" />
 
-    <TextView
-        android:id="@+id/tv_bullet_point"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/helvetica_regular"
-        android:text="минус балл"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@id/tv_year"
-        app:layout_constraintStart_toEndOf="@id/tv_subtype"
-        app:layout_constraintTop_toBottomOf="@id/im_cover" />
+
 
     <TextView
         android:id="@+id/tv_year"
@@ -108,7 +119,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/helvetica_regular"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:text="r"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/tv_subtype"
         app:layout_constraintTop_toBottomOf="@id/im_cover" />
@@ -120,8 +132,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/helvetica_bold"
-        android:text="минус балл"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/gl_subtype"
         app:layout_constraintTop_toBottomOf="@id/tv_subtype"
@@ -133,8 +144,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/helvetica_regular"
-        android:text="Anime_top"
-        android:textColor="@color/white"
+        android:text="top"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/gl_poster_image"
         app:layout_constraintTop_toBottomOf="@id/cv_poster" />

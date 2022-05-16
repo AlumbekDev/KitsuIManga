@@ -13,6 +13,6 @@ interface AnimeApiService {
         @Query("page[offset]") pageOffset: Int,
     ): AnimeListDto
 
-    @GET("anime")
+    @GET("anime/{id}")
     suspend fun fetchAnime(@Path("id") id: String): SingleAnimeDto
 }
