@@ -14,9 +14,7 @@ class GenresAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(dataItemUi: DataItemUi) {
             binding.tvGenre.text = dataItemUi.attributes.name
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenresViewHolder {

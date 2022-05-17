@@ -2,6 +2,8 @@ package com.example.kitsuimanga.presentation.models.anime
 
 import com.example.domain.models.anime.AnimeDataModel
 import com.example.kitsuimanga.base.BaseDiffModel
+import com.example.kitsuimanga.presentation.models.genres.AttributesUi
+import com.example.kitsuimanga.presentation.models.genres.toUI
 
 data class AnimeDataUI(
     override val id: String,

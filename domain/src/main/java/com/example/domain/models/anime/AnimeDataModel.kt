@@ -5,5 +5,5 @@ data class AnimeDataModel(
     val type: String?,
     val links: LinksModel?,
     val animeDto: AnimeModel,
-    val relationships: RelationshipsModel?
+    val relationships: RelationshipsModel?,
 )

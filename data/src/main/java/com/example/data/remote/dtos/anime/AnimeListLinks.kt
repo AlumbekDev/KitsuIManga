@@ -11,7 +11,7 @@ data class LinksXXXXXXXXXXXXX(
     @SerializedName("next")
     val next: String,
     @SerializedName("last")
-    val last: String,
+    val last: String?,
 )
 
 fun LinksXXXXXXXXXXXXX.toDomain() =

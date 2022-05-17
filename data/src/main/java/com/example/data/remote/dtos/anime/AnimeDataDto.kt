@@ -1,5 +1,7 @@
 package com.example.data.remote.dtos.anime
 
+import com.example.data.remote.dtos.genres.AttributesDto
+import com.example.data.remote.dtos.genres.toDomain
 import com.example.domain.models.anime.AnimeDataModel
 import com.google.gson.annotations.SerializedName
 

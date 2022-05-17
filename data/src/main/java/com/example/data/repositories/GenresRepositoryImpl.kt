@@ -1,6 +1,7 @@
 package com.example.data.repositories
 
 import com.example.data.remote.apiservice.GenresApiService
+import com.example.data.remote.dtos.anime.toDomain
 import com.example.data.remote.dtos.genres.toDomain
 import com.example.data.repositories.base.BaseRepository
 import com.example.domain.repositories.GenresRepository

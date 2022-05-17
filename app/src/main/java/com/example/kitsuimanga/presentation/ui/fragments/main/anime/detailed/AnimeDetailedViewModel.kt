@@ -5,7 +5,7 @@ import com.example.domain.usecase.FetchGenresUseCase
 import com.example.kitsuimanga.base.BaseViewModel
 import com.example.kitsuimanga.presentation.models.anime.SingleAnimeUI
 import com.example.kitsuimanga.presentation.models.anime.toUI
-import com.example.kitsuimanga.presentation.models.genres.GenresUi
+import com.example.kitsuimanga.presentation.models.genres.GenresListUi
 import com.example.kitsuimanga.presentation.models.genres.toUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,7 +19,7 @@ class AnimeDetailedViewModel @Inject constructor(
     private val _animeDetailedState = mutableUiStateFlow<SingleAnimeUI>()
     var animeDetailedState = _animeDetailedState.asStateFlow()
 
-    private val _animeGenresState = mutableUiStateFlow<GenresUi>()
+    private val _animeGenresState = mutableUiStateFlow<GenresListUi>()
     var animeGenresState = _animeGenresState.asStateFlow()
 
     fun fetchADetailedAnime(id: String) =

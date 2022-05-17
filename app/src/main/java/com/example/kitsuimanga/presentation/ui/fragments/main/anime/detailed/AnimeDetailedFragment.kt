@@ -3,6 +3,7 @@ package com.example.kitsuimanga.presentation.ui.fragments.main.anime.detailed
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -35,10 +36,13 @@ class AnimeDetailedFragment :
     }
 
     private fun subscribeToGenres() {
-        viewModel.animeGenresState.collectUiState(success = {
+        viewModel.animeGenresState.collectUiState(
+            error = {
+                Log.e("hehehe", it)
+            },
+            success = {
             binding.recyclerview.adapter = genresAdapter
             genresAdapter.submitList(it.data)
-
         })
     }
 
