@@ -10,7 +10,7 @@ import com.example.kitsuimanga.databinding.ItemAnimeBinding
 import com.example.kitsuimanga.presentation.models.anime.AnimeDataUI
 
 class AnimeAdapter(
-    private val onClick: (id: String) -> Unit,
+    private val onClick: (id: String, trailerId: String?) -> Unit,
 ) :
     PagingDataAdapter<AnimeDataUI, AnimeAdapter.AnimeViewHolder>(BaseDiffUtil()) {
     inner class AnimeViewHolder(private val binding: ItemAnimeBinding) :
@@ -18,7 +18,7 @@ class AnimeAdapter(
         fun onBind(ui: AnimeDataUI) {
             binding.imAnime.setImage(ui.animeDto.posterImage?.original)
             binding.root.setOnClickListener {
-                onClick(ui.id)
+                onClick(ui.id, ui.animeDto.youtubeVideoId)
             }
         }
     }

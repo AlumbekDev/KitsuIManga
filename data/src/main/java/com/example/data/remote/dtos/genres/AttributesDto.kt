@@ -1,10 +1,16 @@
 package com.example.data.remote.dtos.genres
 
-data class AttributesDto(
+import com.google.gson.annotations.SerializedName
 
-    val createdAt: String = "",
-    val name: String = "",
-    val description: String = "",
-    val slug: String = "",
-    val updatedAt: String = "",
+data class AttributesDto(
+    @SerializedName("createdAt")
+    val createdAt: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("description")
+    val description: String,
+    @SerializedName("slug")
+    val slug: String,
+    @SerializedName("updatedAt")
+    val updatedAt: String,
 )
