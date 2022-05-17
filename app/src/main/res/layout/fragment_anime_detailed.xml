@@ -121,21 +121,22 @@
                     <ImageView
                         android:id="@+id/im_poster"
                         android:layout_width="100dp"
-                        android:layout_height="149dp"
-                        android:layout_marginTop="-8dp"
+                        android:layout_height="150dp"
                         android:contentDescription="anime_s_poster"
                         tools:src="@tools:sample/avatars" />
+
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_marginTop="80dp"
-                    android:background="#AF6A6A"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    tools:listitem="@layout/item_genres" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/gl_subtype"
@@ -310,6 +311,7 @@
                 <Button
                     android:id="@+id/btn_youtube_video"
                     android:layout_width="wrap_content"
+                    android:visibility="invisible"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#936262"
                     android:text="youtube video"

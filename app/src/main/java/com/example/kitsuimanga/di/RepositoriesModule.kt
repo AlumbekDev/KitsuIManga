@@ -2,9 +2,11 @@ package com.example.kitsuimanga.di
 
 import com.example.data.repositories.AnimeRepositoryImpl
 import com.example.data.repositories.AuthenticationRepositoryImpl
+import com.example.data.repositories.GenresRepositoryImpl
 import com.example.data.repositories.MangaRepositoryImpl
 import com.example.domain.repositories.AnimeRepository
 import com.example.domain.repositories.AuthenticationRepository
+import com.example.domain.repositories.GenresRepository
 import com.example.domain.repositories.MangaRepository
 import dagger.Binds
 import dagger.Module
@@ -24,4 +26,7 @@ abstract class RepositoriesModule {
 
     @Binds
     abstract fun provideAuthenticationRepository(authenticationRepositoryImpl: AuthenticationRepositoryImpl): AuthenticationRepository
+
+    @Binds
+    abstract fun provideGenresRepository(genresRepositoryImpl: GenresRepositoryImpl): GenresRepository
 }

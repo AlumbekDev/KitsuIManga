@@ -18,7 +18,10 @@ class AnimeAdapter(
         fun onBind(ui: AnimeDataUI) {
             binding.imAnime.setImage(ui.animeDto.posterImage?.original)
             binding.root.setOnClickListener {
-                onClick(ui.id, ui.animeDto.youtubeVideoId)
+                if (ui.animeDto.youtubeVideoId == null)
+                    onClick(ui.id, null)
+                else
+                    onClick(ui.id, ui.animeDto.youtubeVideoId)
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.data.remote.dtos.genres
 
+import com.example.domain.models.genres.DataItemModels
 import com.google.gson.annotations.SerializedName
 
 data class DataItemDto(
@@ -12,3 +13,5 @@ data class DataItemDto(
     @SerializedName("type")
     val type: String,
 )
+
+fun DataItemDto.toDomain() = DataItemModels(links.toDomain(), attributes.toDomain(), id, type)

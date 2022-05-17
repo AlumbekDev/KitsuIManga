@@ -26,4 +26,7 @@ object NetworkModule {
     @Provides
     fun provideAuthenticationApiService(authenticationClient: RetrofitClient.AuthenticationClient) =
         authenticationClient.provideAuthenticationApiService()
+    @Singleton
+    @Provides
+    fun provideGenresApiService(retrofitClient: RetrofitClient) = retrofitClient.provideGenresApiService()
 }

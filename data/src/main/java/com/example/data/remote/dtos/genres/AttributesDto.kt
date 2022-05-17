@@ -1,5 +1,6 @@
 package com.example.data.remote.dtos.genres
 
+import com.example.domain.models.genres.AttributesModels
 import com.google.gson.annotations.SerializedName
 
 data class AttributesDto(
@@ -14,3 +15,4 @@ data class AttributesDto(
     @SerializedName("updatedAt")
     val updatedAt: String,
 )
+fun AttributesDto.toDomain() = AttributesModels(createdAt, name, description, slug, updatedAt)
