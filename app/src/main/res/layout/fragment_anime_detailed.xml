@@ -311,7 +311,8 @@
                     android:id="@+id/btn_youtube_video"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
+                    android:backgroundTint="#936262"
+                    android:text="youtube video"
                     app:layout_constraintBottom_toTopOf="@id/im_rating"
                     app:layout_constraintStart_toEndOf="@id/tv_popularity" />
 
